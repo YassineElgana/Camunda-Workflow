@@ -1,0 +1,43 @@
+
+    <div class="row" style="margin-left: 143px;width: 1135px;">
+        <div class="col-8">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="mb-3" style="color: rgb(255, 0, 128);font-style: italic;">
+
+                        <div class="waviy1">
+                            <span style="--i:1">&nbsp; Télecharger Une Model</span>
+                            <span style="--i:4">&nbsp;<i class="fa fa-download"></i></span>
+                        </div>
+                    
+
+                    </h1>
+                    <div class="my-2">
+ 
+                    </div>
+                    <form class="form">
+                        <div class="input-group mb-3">
+                            <div class="custom-file">
+                                <input (change)="handleFileInput($event.target.files)" type="file" class="custom-file-input" id="inputGroupFile02" style="font-size: 18pt; height: 40px; width:280px; " accept="application/.pdf,application/.bpmn" >
+                                <label class="custom-file-label"  for="inputGroupFile02" aria-describedby="inputGroupFileAddon02"  style="font-size: 1rem;">Choose file</label>
+                            </div>
+                            <div class="input-group-append " >
+                                   <button (click)="uploadFileToActivity()" class="btn btn-primary" id="btn">
+                                    Télécharger
+                                       <span class="horizontal"></span>
+                                       <span class="horizontal"></span>
+                                       <span class="vertical"></span>
+                                       <span class="vertical"></span>
+                                   </button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>

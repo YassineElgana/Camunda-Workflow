@@ -1,0 +1,32 @@
+
+<div class="d-flex m-3">
+    <img style="width: 190px;top: 83px;left:17px;position: relative;" class="ml-auto mr-auto"src="assets/logos/DocumaniaWF.png" alt="">
+
+</div>
+    <div class="body">
+        <form *ngIf="component==='signin'" style="position: relative;top:-120px;left: 20px;"> 
+    <div class="container">
+        <div *ngIf="invalidLogin" class="alert alert-danger">
+            <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;&nbsp;{{errorMessage}}
+        </div>
+        <div class="login-form">
+          <h2 class="title">Sign up</h2>
+          <div class="input-field">
+            <input type="email" placeholder="Nom d'utilisateur" [(ngModel)]="username" type="text" [ngModelOptions]="{standalone: true}" id="username" name="username">
+          </div>
+          <div class="input-field">
+            <input type="password" placeholder="Mot de passe"  [(ngModel)]="password" [ngModelOptions]="{standalone: true}" id="password">
+          </div>
+          
+      
+       
+      
+          <button class="btn login" [tooltipClass]="'tooltip-color'" (click)="handleLogin()" [ngbTooltip]="'Login'" [placement]="'bottom-right'" >Se Connecter</button>
+      
+        <label style="color: white;">&copy; 2021 VevioSys</label>
+        </div>
+      </div>
+        </form>
+    </div>
+
+    

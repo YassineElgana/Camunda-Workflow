@@ -1,0 +1,243 @@
+<div class="con">
+<div class="container-fluid">
+ 
+  <div class="row">
+      <div class="col-7">
+          <div class="card">
+              <div class="card-body">
+                  <div class="h4 my-1" style="color:rgb(255, 0, 128);font-style: italic">
+                    La Liste Des Processus :
+                  </div>
+                  <br>
+                     <select (change)="changeProcess($event)" class="form-control" >
+                         <option selected disabled >------ Sélectionnez Le Processus ------</option>
+                         <option *ngFor="let pd of processDefinitions " value={{pd.key}}>{{ pd.name ? pd.name :pd.key }} </option>
+                    </select>
+
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<br><br><br>
+
+<h1 style="color:rgb(255, 0, 128);font-style: italic;">Déployé </h1>
+<div class="row" style="width: 1283px;">
+  <div class="changeSize" >
+    <div class="stati turquoise left">
+      <i class="fa fa-microchip"></i>
+      <div>
+        <b>{{countProcessDefinition}}</b>
+        <span>Définitions de processus</span>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="changeSize" >
+    <div class="stati turquoise bg-pomegranate">
+      <i class="fa fa-info-circle"></i>
+      <div>
+        <b>{{countDecisionDefinitions}}</b>
+        <span>Définitions de décision</span>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="changeSize">
+    <div class="stati left bg-silver">
+      <i class="fa fa-sitemap"></i>
+      <div>
+        <b>{{countCaseDefinitions}}</b>
+        <span>Définitions de cas</span>
+      </div> 
+    </div>
+  </div> 
+  
+
+  <div class="changeSize" >
+    <div class="stati bg-nephritis">
+      <i class="fa fa-share-alt"></i>
+      <div>
+        <b>{{countDeployement}}</b>
+        <span>Déploiements</span>
+      </div> 
+    </div>
+  </div> 
+
+  
+    <div class="changeSize2">
+      <div class="stati bg-amethyst">
+        <i class="fa fa-user"></i>
+        <div>  
+          <b>{{countAssignedToUser ? countAssignedToUser:"0"}}</b>
+          <span>Assigned to a user </span>
+        </div> 
+      </div>
+    </div> 
+
+
+    <div class="changeSize2">
+      <div class="stati bg-sun_flower">
+      <i class="fa fa-users" ></i> 
+        <div style="display: inline; width: 260px;">
+          <b>{{countAssignedToGroup ? countAssignedToGroup:"0"}}</b>
+          <span>Assigned to groups</span>
+        </div> 
+      </div>
+    </div> 
+
+
+    <div class="changeSize2">
+      <div class="stati bg-alizarin">
+        <i class="fa fa-question"></i>
+        <div>  
+          <b>{{countUnassigned ? countUnassigned :"0"}}</b>
+          <span>Unassigned</span>
+        </div> 
+      </div>
+    </div> 
+
+    
+    
+    
+      <div class="changeSize2">
+        <div class="stati wet_asphalt ">
+          <i class="fa fa-hourglass"></i>
+          <div>
+            <b>{{countTotal ? countTotal : "0"}}</b>
+            <span>Total</span>
+          </div> 
+        </div>
+      </div>  
+
+</div>
+
+
+
+<br><br><br><br>
+
+<h1 style="color:rgb(255, 0, 128);font-style: italic;">Informations Sur Les Instances</h1>
+<div class="row" style="width: 1283px;">
+
+<div class="container">
+  <div class="container-cards">
+  
+  
+  
+      <div class="card">
+          <div class="face face1">
+              <div class="content_cards">
+                  <div class="icon"> 
+                      <i class="fa fa-map-pin icons_style" aria-hidden="true"></i>
+                  </div>
+              </div>
+          </div>
+          <div class="face face2">
+              <div class="content_cards">
+                <h5>Nombre De Processus Actifs</h5>
+                  <h3>
+                      <a style="color: rgb(0, 238, 255);">{{countActiveInstance?countActiveInstance:"0"}}</a>
+                  </h3>
+                  
+              </div>
+          </div>
+      </div>
+
+
+      <div class="card">
+          <div class="face face1">
+              <div class="content_cards">
+                  <div class="icon">
+                      <i class="fa fa-exclamation-circle icons_style"  aria-hidden="true"></i>
+                     
+                  </div>
+              </div>
+          </div>
+          <div class="face face2">
+              <div class="content_cards">
+                <h4>Nombre d'instances en cours d'exécution</h4>
+                  <h3>
+                      <a style="color: rgb(0, 238, 255);">{{countRuningInstance?countRuningInstance:"0" }}</a>
+                  </h3>
+                  
+              </div>
+          </div>
+      </div>
+  
+
+      <div class="card">
+          <div class="face face1">
+              <div class="content_cards">
+                  <div class="icon">
+                      <i class="fa fa-check-circle icons_style" aria-hidden="true"></i>
+                  </div>
+              </div>
+          </div>
+          <div class="face face2">
+              <div class="content_cards">
+                <h3>Nombre les instances terminées</h3>
+                  <h3>
+                      <a style="color: rgb(0, 238, 255);">{{countCompletedInstance ? countCompletedInstance:"0"}}</a>
+                  </h3>
+               
+              </div>
+          </div>
+      </div>
+      </div>
+  
+  
+  </div>
+  
+</div>
+
+<br><br><br><br><br>
+<h1 style="color: rgb(255, 0, 128);font-style: italic;">Instances De Processus</h1>
+<div class="row" style="width: 1283px;">
+    <div class="col-12">
+    <table class="table" id="table">
+        <thead>
+          <tr>
+            <th style="color: #ffffff">State</th>
+            <th style="color: #ffffff">Name </th>
+            <th style="color: #ffffff">ID</th>
+            <th style="color: #ffffff">Start Time</th>
+            <th style="color: #ffffff">Due Date</th>
+            <th style="color: #ffffff">Assignee </th>   
+            <th style="color: #ffffff">Set Assignee</th>
+            <th style="color: #ffffff">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of allInformation  |  paginate: { id: 'listing_pagination',
+          itemsPerPage: 10,
+          currentPage: page,
+          totalItems: totalRecords };let i =index ">
+            <td ><span [style]="'height: 25px; width: 25px; background-color: '+defineColor(item.due)+';border-radius:50%;display:inline-block;'"></span></td>
+            <td>{{item.name}}</td>
+            <td>{{item.id}}</td>
+            <td>{{item.created}}</td>
+            <td>{{item.due ?item.due:"N/A"}}</td> 
+            <td id={{item.id}}>{{item.assignee}}</td>
+            <td>
+              
+          <select id="list_of_user" style="width: 75%;" (change)="getTaskForAssignee($event,item)">  
+                <option selected disabled>------ New Assignee ------</option>   
+                 <option *ngFor="let pd of listOfUsers;let i=index" value={{pd.id}}>{{pd.firstName}} <strong>{{getGroupOfUser[i]}}</strong></option>
+          </select>
+          <button id="btn_confirm" type="button" class="btn btn-success" [disabled]="!item.assigneeDraft" (click)="setAssigne2(item)"><i class="fa fa-check" style="width:-27%;margin-left: 10%;" ></i></button>
+          </td>
+          <td><button (click)="delete(item)" id="btn_delete" type="button" class="btn btn-danger" style="width: 90px;"><i class="fa fa-trash" ></i></button></td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
+    <div>
+      <pagination-controls   id="listing_pagination" *ngIf="check==true" maxSize="5" directionLinks="true" (pageChange)="page = $event" ></pagination-controls>
+    </div>
+    </div>
+  
+  </div>

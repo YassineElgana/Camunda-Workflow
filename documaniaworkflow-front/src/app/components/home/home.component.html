@@ -1,0 +1,80 @@
+
+  
+  <div style="margin-left: 5rem;margin-top:1rem ;">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="area"></div><nav class="main-menu">
+    <ul>
+        <li>
+            <a [routerLink]="'/home'" >
+                <i class="fa fa-home fa-2x"></i>
+                <span class="nav-text">
+                  Documania WorkFlow
+                </span>
+            </a>
+        </li>
+        <li class="has-subnav" style="margin-top: 15px;">
+            <a [routerLink]="'/home/upload'">
+                <i class="fa fa-laptop fa-2x"></i>
+                <span class="nav-text">
+                  Télecharger une model
+                </span>
+            </a>
+            
+        </li>
+        <li class="has-subnav" style="margin-top: 15px;">
+            <a [routerLink]="'/home/start'" >
+               <i class="fa fa-list fa-2x"></i>
+               <span class="nav-text">
+                  Executer Proccess
+                </span>
+            </a>
+            
+        </li>
+        <li class="has-subnav" style="margin-top: 15px;">
+            <a [routerLink]="'/home/tasks'" >
+               <i class="fa fa-folder-open fa-2x"></i>
+               <span class="nav-text">
+                  Liste des taches
+                </span>
+            </a>
+           
+        </li>
+        <li style="margin-top: 20px;">
+            
+            <a [routerLink]="'/home/status'" >
+                <i class="fa fa-bar-chart-o fa-2x"></i>
+                <span class="nav-text">
+                  Graphiques et statistiques
+                </span>
+            </a>
+        </li>
+
+    </ul>
+
+    <ul class="logout">
+        <li>
+           <a href="#" title="Logout">
+                 <i class="fa fa-power-off fa-2x" ></i>
+                 <span class="nav-text">    
+                    Logout
+                </span>
+            </a>
+        </li>  
+    </ul>
+</nav>
+
+<section *ngIf="checkInHome==true">
+<img class="shape" src="https://s3.us-east-2.amazonaws.com/ui.glass/shape.svg" alt="">
+<div class="card">
+    <h1 class="card-title">Qu'est-ce qu'un workflow?</h1>
+    <p style="font-size: 1.2rem;">La définition d’un workflow, hum…. c´est « le processus séquentiel par lequel une tâche est accomplie, du début à la fin ». Pour le dire clairement, c’est la méthode que vous avez choisie pour réaliser vos tâches.
+
+        Par « tâches », comprenez  : une liste de tâches hebdomadaire, un projet plus détaillé, écrire un livre ou mettre en place un système de facturation pour les clients...bref, vous pouvez créer un workflow pour tout ce que vous voulez.
+        
+        En fait, vous gérez et exécutez des workflows probablement chaque jour sans même vous en rendre compte. Par exemple, supposons que votre pressing se trouve sur le chemin du club de foot de votre enfant, qui se trouve être également l’itinéraire qui passe par votre pâtisserie préférée. Ainsi, tous les mercredis, lorsque votre enfant va au club, vous en profitez pour déposer votre linge au pressing en cours de route, puis vous allez vous régaler d'un délicieux petit gâteau au moment de rentrer chez vous. Cette optimisation du parcours est un exemple de workflow dans sa forme la plus simple.
+        
+        En matière de productivité quotidienne, vous ne réalisez peut-être même pas à quel point votre vie serait beaucoup plus facile si vous disposiez d'un workflow. Explorer votre courrier électronique ou une pile de documents pour trouver des informations est une perte de temps. Il y a un moyen plus facile!</p>
+    
+</div>
+</section>

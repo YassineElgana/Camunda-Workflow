@@ -1,0 +1,82 @@
+button {
+ 
+   color: rgb(255, 0, 128);
+    width: 9rem;
+    height: 2.5rem;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    letter-spacing: 2;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  
+  button span {
+    position: absolute;
+    transition: all 0.45s ease-in-out;
+  }
+  
+  button .horizontal {
+    width: 15%;
+    height: 0.2rem;
+    background-color: lawngreen;
+  }
+  
+  button .vertical {
+    height: 30%;
+    width: 0.2rem;
+    background-color: lawngreen;
+  }
+  
+  button span:nth-child(1) {
+    top: 0;
+    left: 0;
+  }
+  
+  button span:nth-child(2) {
+    bottom: 0;
+    right: 0;
+  }
+  
+  button span:nth-child(3) {
+    top: 0;
+    left: 0;
+  }
+  
+  button span:nth-child(4) {
+    bottom: 0;
+    right: 0;
+  }
+  
+  button:hover .horizontal {
+    width: 100%;
+  }
+  
+  button:hover .vertical {
+    height: 100%;
+  }
+  button:focus {
+      outline:0;
+      box-shadow:none;
+    }
+    .waviy {
+        position: relative;
+        -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,.2));
+      }
+      .waviy span {
+        position: relative;
+        display: inline-block;
+        font-size: 40px;
+        color: #000000;
+        text-transform: uppercase;
+        animation: waviy 1s infinite;
+        animation-delay: calc(.1s * var(--i))
+      }
+      @keyframes waviy {
+        0%,40%,100% {
+          transform: translateY(0)
+        }
+        20% {
+          transform: translateY(-20px)
+        }
+      }

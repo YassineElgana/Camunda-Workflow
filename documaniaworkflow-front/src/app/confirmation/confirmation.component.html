@@ -1,0 +1,23 @@
+<div class="card">
+    <div class="card-header bg-white d-flex">
+     Confirmation
+     <div class="mx-auto">
+
+     </div>
+
+     <div class="mx-2">
+         <a (click)="activeModal.dismiss()" class="text-danger" style="cursor: pointer;"> X </a>
+     </div>
+    </div>
+
+    <div class="card-body">
+     Voullez vous supprimer : {{taskId}}
+    </div>
+   <div class="col-3" style="margin-left: 23.9rem;">  
+         <button class="btn btn-danger" (click)="delete(taskId)">
+                 Supprimer
+         </button>
+    </div>
+ </div>
+ 
+ 

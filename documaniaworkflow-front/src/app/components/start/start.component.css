@@ -1,0 +1,133 @@
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+.link.anim-iamhere {
+    cursor: pointer;
+    color: #707E8E;
+    font-style:oblique;
+    font-size: 1.6em;
+		font-weight: 300;
+		display: inline-block;
+		position: relative;
+		margin-bottom: 0.5em;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.link.anim-iamhere:hover {
+color: blue;
+}
+
+.waviy {
+  position: relative;
+  -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,.2));
+}
+.waviy span {
+  position: relative;
+  display: inline-block;
+  font-size: 40px;
+  color: #707E8E;
+  text-transform: uppercase;
+  animation: waviy 1s infinite;
+  animation-delay: calc(.1s * var(--i))
+}
+@keyframes waviy {
+  0%,40%,100% {
+    transform: translateY(0)
+  }
+  20% {
+    transform: translateY(-20px)
+  }
+}
+
+.linkmove {
+  color: #000;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  display: inline-block;
+  padding: 15px 20px;
+  position: relative;
+}
+
+.linkmove::after { 
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  display: block;
+  background: none repeat scroll 0 0 transparent;
+  height: 2px;
+  width: 0;
+  background: #000;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+}
+
+.linkmove:hover::after { 
+  width: 100%; 
+  left: 0; 
+}
+
+pagination-controls::after {
+  content: "";
+  background: #ecf0f1;
+  position: absolute;
+  z-index: -1;
+  padding: 0.85em 0.75em;
+  display: block;
+}
+pagination-controls {
+  font-size: 1em;
+  background: #3498db;
+  color: #fff;
+  border: 0.25rem solid #3498db;
+  padding: 0.2em ;
+  margin: 1rem;
+  position: relative;
+  z-index: 1;
+}
+pagination-controls:hover {
+  color: #3498db;
+}
+pagination-controls[class^="grow"]::after {
+  transition: all 0.3s ease;
+}
+pagination-controls[class^="grow"]:hover::after {
+  transition: all 0.3s ease-out;
+}
+pagination-controls.grow_box::after {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transform: scale(0, 0);
+}
+pagination-controls.grow_box:hover::after {
+  transform: scale(1, 1);
+}
+.others {
+  background-color:black;
+  color: white;
+}
+#select,#select2{
+  box-shadow: none;
+}
+.ngx-pagination a, .ngx-pagination button{
+  color: red  !important;
+}
+input{
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  background-color: #ffffff;
+}
+
+.no-outline:focus {
+  outline: none;
+}
+
+::selection {
+  background: rgb(255, 0, 128);
+  color: white;
+}

@@ -1,0 +1,55 @@
+
+<div class="row" style="margin-left: 170px;width: 1099px;">
+  
+    <div class="col-6">
+      <label style="color:#7e8b92;font-weight: 400;margin-bottom: 10px;font-size: 1.5rem;">Search:</label><input type="text" class="no-outline" (keyup)="Search($event)" style="background-color: inherit;font-size: 1.2rem;">
+        <div class="ui grid">
+            <div class="six wide column">
+              <ol class="list">
+                <li style="list-style-type: none;" *ngFor="let task of data |  paginate: { id: 'listing_pagination',
+                itemsPerPage: 5,
+                currentPage: page,
+                totalItems: totalRecords }" class="item">
+                  <p><a routerLink="do/{{task.id}}" class="link anim-classic" >{{task.name}}</a></p>
+                </li>
+              </ol>
+            </div>
+           
+
+          </div>
+          
+    </div>
+   
+
+
+    
+
+
+
+<div class="col-6">
+    <router-outlet>
+    
+
+    </router-outlet>
+</div>
+
+</div>
+<div>
+  <pagination-controls style="display: inline-block;margin-left: 223px;" id="listing_pagination" maxSize="5" directionLinks="true" class="grow_box" (pageChange)="getData($event)" ></pagination-controls>
+    <select id="select" class="custom-select" style="width:220px;color: white;height: 63px;top: 6px;left: -8px;background-color:#3498db ;position: relative;" (change)="getChangedValue($event)">
+      <option  class="others" value="5">5</option>
+      <option  class="others" value="10">10</option>
+      <option  class="others" value="15">15</option>
+      <option  class="others" value="20">20</option>
+      <option  class="others" value="25">25</option>
+    </select>
+    <select id="select2" class="custom-select" style="width:220px;color: white;height: 63px;top: 6px;left: -1px;background-color:#3498db ;position: relative;" (change)="sort(data,$event)" >
+      <option disabled selected>Sort</option>
+      <option class="others" value="desc">Descending</option>
+      <option class="others" value="asc">Ascending</option>
+    </select>
+</div>
+
+
+
+

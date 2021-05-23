@@ -1,0 +1,50 @@
+
+    <div class="row" style="margin-left: 135px;width: 1134px;">
+        <div class="col-8">
+            <div class="card">
+                <div class="card-body">
+                    <div class="h4 my-1" >
+                        <h1 style="color: rgb(255, 0, 128);font-style: italic;">
+                            <div class="waviy1">  
+                                <span>La Liste Des Proccessus :</span>
+                            </div>
+                        </h1>
+                        <label style="color:#7e8b92;font-weight: 400;margin-bottom: 10px;">Search:</label><input type="text" class="no-outline" (keyup)="Search($event)">
+                    </div>
+                    <ul>
+                        <li *ngFor="let pd of this.processDefinitions  | paginate: { id: 'listing_pagination',
+                        itemsPerPage: 5,
+                        currentPage: page,
+                        totalItems: totalRecordes }" style="list-style-type:none"> <i class="fa fa-check" style="color: #00fd7f;"></i><a routerLink="process/{{pd.key}}" style="font-size: 1.2rem;text-decoration: none;" class="linkmove" >{{ pd.name ? pd.name :pd.key }}</a> | <a (click)="view(pd.key)" class="link anim-iamhere">Vue &nbsp;<i class="fa fa-eye"></i></a> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+
+            <router-outlet></router-outlet>
+
+        </div>
+
+
+    </div>
+    
+     <div>
+        
+          <pagination-controls style="display: inline-block;margin-left: 152px;" id="listing_pagination" maxSize="5" class="grow_box" directionLinks="true" (pageChange)="getNextOrPreviousData($event)"></pagination-controls> 
+        
+        <select id="select" class="custom-select"  style="width:220px;color: white;height: 63px;top: 6px;left: -8px;background-color:#3498db ;position: relative;" (change)="getChangedValue($event)">
+            <option class="others" value="5">5</option>
+            <option class="others" value="10">10</option>
+            <option class="others" value="15">15</option>
+            <option class="others" value="20">20</option>
+            <option class="others" value="25">25</option>
+        </select>
+        <select id="select2" class="custom-select" style="width:220px;color: white;height: 63px;top: 6px;left: -1px;background-color:#3498db ;position: relative;" (change)="sort(processDefinitions,$event)">
+            <option  disabled selected>Sort</option>
+            <option class="others" value="desc">Descending</option>
+            <option class="others" value="asc">Ascending</option>
+        </select>
+      </div>
+
+ 

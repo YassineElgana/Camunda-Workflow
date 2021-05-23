@@ -1,0 +1,26 @@
+
+
+<form (ngSubmit)="ngSubmit()" *ngIf="!isSubmited" >
+   
+    <ng-container *ngFor="let m of model">
+        <div class="form-group">
+            <label [for]="m.key">{{m.key}}</label>
+            <input [type]="m.type =='Long' ? 'number' : m.type" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="submitVariablesForm.variables[m.key].value">
+          </div>
+    </ng-container>
+
+         
+     <button type="submit" class="btn btn-primary mr-auto" style="color: rgb(77, 77, 77);font-style:oblique;">
+
+        Strat New Process
+
+
+     </button>
+</form>
+<ng-container *ngIf="isSubmited">
+    <div class="alert alert-success" role="alert" style="color: rgb(77, 77, 77);font-style:oblique;">
+        Le processus est lancé
+      </div>
+</ng-container>
+
+
